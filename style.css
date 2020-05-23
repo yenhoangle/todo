@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+*:focus {
+    outline: 0;
+    border: transparent;
+    box-shadow: none;
+}
+
 body{
     background-image: linear-gradient(120deg,#f6d365, #fda085);
     font-family: "Poppins", sans-serif;
@@ -29,14 +35,14 @@ form input, form button {
 }
 /*adds hover effects to button */
 form button {
-    color: #fda085;
+    color: #ff6f47;
     background: white;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 form button:hover {
-    background: #fda085;
+    background: #ff6f47;
     color: white;
 }
 /* gets rid of black border for button click*/
@@ -95,6 +101,7 @@ input:focus, textarea:focus, select:focus{
 .complete-btn {
     background: rgb(19, 207, 45);
 }
+
 /* allows clicking through the trash and check icons */
 .fa-trash, .fa-check {
     pointer-events: none;
@@ -104,3 +111,45 @@ input:focus, textarea:focus, select:focus{
     text-decoration: line-through;
     opacity: 0.5;
 }
+
+/* adding a fall effect to the todo item */
+.fall {
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    box-shadow: none;
+    color: #ff6f47;
+    width: 10rem;
+    cursor: pointer;
+    border: transparent;
+    padding: 1rem;
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* adding pseudo-element*/
+.select::after{
+    content: "\25BC"; /* adds a drop down triangle */
+    position: absolute;
+    background: #ff6f47; 
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    pointer-events: none;
+}
+
+.select:hover::after{
+    background: white;
+    color: #ff6f47;
+    transition: all 0.3s ease;
+}
+
